@@ -20,6 +20,11 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Installer les dépendances (nba_api)
+        run: |
+          pip install --upgrade pip
+          pip install nba_api
+
       - name: Exécuter le script Python
         run: python update_nba.py
 
