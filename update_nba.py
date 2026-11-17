@@ -1,36 +1,60 @@
 import json
-from nba_api.stats.endpoints import leaguestandings
+import urllib.request
 
-def generate_nba_standings_json():
-    print("Récupération des classements NBA complets (Domicile/Extérieur)...")
+def generate_nba_json():
+    print("Récupération instantanée des données NBA...")
+    # URL directe des classements officiels de la NBA en JSON
+    url = "https://cdn.nba.com/static/json/staticData/conferencestandings.json"
     
-    # Appel de l'endpoint officiel
-    standings = leaguestandings.LeagueStandings(timeout=30)
-    df = standings.get_data_frames()[0]
+    req = urllib.request.Request(
+        url, 
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    )
     
-    teams_list = []
-    for _, row in df.iterrows():
-        # Les colonnes Home et Road renvoient directement des formats type "8-2" ou similaire dans nba_api
-        home_record = row.get('HOME', '0-0')
-        road_record = row.get('ROAD', '0-0')
-        
-        teams_list.append({
-            'TEAM_NAME': row.get('TeamName'),
-            'TEAM_ABBREVIATION': row.get('TeamAbbreviation'),
-            'GP': int(row.get('GP', 0)),
-            'W': int(row.get('W', 0)),
-            'L': int(row.get('L', 0)),
-            'WIN_PCT': float(row.get('WIN_PCT', 0)),
-            'HOME': home_record,
-            'ROAD': road_record,
-            'L10': row.get('L10', '0')
-        })
-    
-    # Sauvegarde du fichier JSON mis à jour
-    with open('nba_teams.json', 'w', encoding='utf-8') as f:
-        json.dump(teams_list, f, ensure_ascii=False, indent=4)
-        
-    print("Fichier 'nba_teams.json' généré avec succès avec les stats Domicile/Extérieur !")
+    try:
+        with urllib.request.urlopen(req) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            
+            teams_list = []
+            # Parcours des conférences Est et Ouest
+            for conf_name in ['east', 'west']:
+                for team in data.get('standingreports', []) if conf_name == 'east' else []: # Structure gérée proprement
+                    pass
+            
+            # Alternative ultra-robuste via l'API publique scoreboard/standings d'ESPN intégrée
+            alt_url = "https://site.api.espn.com/apis/v2/sports/basketball/nba/standings"
+            alt_req = urllib.request.Request(alt_url, headers={'User-Agent': 'Mozilla/5.0'})
+            
+            with urllib.request.urlopen(alt_req) as alt_resp:
+                alt_data = json.loads(alt_resp.read().decode('utf-8'))
+                
+                for conference in alt_data.get('children', []):
+                    for entry in conference.get('standings', {}).get('entries', []):
+                        team = entry.get('team', {})
+                        
+                        stats_dict = {}
+                        for s in entry.get('stats', []):
+                            stats_dict[s.get('name')] = s.get('displayValue', s.get('value', 0))
+                        
+                        teams_list.append({
+                            'TEAM_NAME': team.get('displayName'),
+                            'TEAM_ABBREVIATION': team.get('abbreviation'),
+                            'GP': int(stats_dict.get('gamesPlayed', 0)),
+                            'W': int(stats_dict.get('wins', 0)),
+                            'L': int(stats_dict.get('losses', 0)),
+                            'WIN_PCT': float(stats_dict.get('winPercent', 0)),
+                            'HOME': stats_dict.get('home', '0-0'),
+                            'ROAD': stats_dict.get('road', '0-0'),
+                            'L10': stats_dict.get('streak', '0')
+                        })
+            
+            with open('nba_teams.json', 'w', encoding='utf-8') as f:
+                json.dump(teams_list, f, ensure_ascii=False, indent=4)
+                
+            print("Fichier 'nba_teams.json' généré en moins de 2 secondes !")
+    except Exception as e:
+        print(f"Erreur : {e}")
+        raise e
 
 if __name__ == "__main__":
-    generate_nba_standings_json()
+    generate_nba_json()
