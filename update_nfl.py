@@ -35,9 +35,9 @@ def generate_nfl_json():
                             stats_dict[name] = s.get('value', 0)
                             display_stats[name] = s.get('displayValue', s.get('summary', '0-0'))
                         
-                        # Récupération sécurisée des bilans Domicile et Extérieur
+                        # Récupération robuste des bilans Domicile et Extérieur
                         home_val = display_stats.get('Home', display_stats.get('home', '0-0'))
-                        road_val = display_stats.get('Road', display_stats.get('road', display_stats.get('Away', '0-0')))
+                        road_val = display_stats.get('Road', display_stats.get('road', display_stats.get('Away', display_stats.get('away', '0-0'))))
                         streak_val = display_stats.get('streak', '0')
                         
                         teams_list.append({
