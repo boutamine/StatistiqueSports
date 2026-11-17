@@ -2,7 +2,7 @@ import json
 import urllib.request
 
 def generate_nba_json():
-    print("Récupération des données NBA avec séries Domicile/Extérieur...")
+    print("Récupération des données NBA avec correction de l'extérieur...")
     url = "https://site.api.espn.com/apis/v2/sports/basketball/nba/standings"
     
     req = urllib.request.Request(
@@ -26,9 +26,8 @@ def generate_nba_json():
                     home_val = "0-0"
                     road_val = "0-0"
                     streak_val = "0"
-                    home_streak = "-"
-                    road_streak = "-"
                     
+                    # On parcourt proprement toutes les stats de l'entrée
                     for s in entry.get('stats', []):
                         name = s.get('name')
                         display_val = s.get('displayValue', s.get('summary', '0-0'))
@@ -47,10 +46,13 @@ def generate_nba_json():
                             road_val = display_val
                         elif name in ['streak', 'L10']:
                             streak_val = display_val
-                        elif name in ['homeStreak', 'homestreak']:
-                            home_streak = display_val
-                        elif name in ['roadStreak', 'awayStreak', 'roadstreak', 'awaystreak']:
-                            road_streak = display_val
+
+                    # Sécurité supplémentaire : si road_val est vide, on cherche dans un résumé textuel
+                    if road_val == "0-0" or not road_val:
+                        for s in entry.get('stats', []):
+                            desc = str(s.get('description', '')).lower()
+                            if 'road' in desc or 'away' in desc:
+                                road_val = s.get('displayValue', s.get('summary', '0-0'))
 
                     teams_list.append({
                         'TEAM_NAME': team.get('displayName'),
@@ -61,15 +63,13 @@ def generate_nba_json():
                         'WIN_PCT': float(stats_dict.get('WIN_PCT', 0)),
                         'HOME': home_val,
                         'ROAD': road_val,
-                        'HOME_STREAK': home_streak,
-                        'ROAD_STREAK': road_streak,
                         'L10': streak_val
                     })
             
             with open('nba_teams.json', 'w', encoding='utf-8') as f:
                 json.dump(teams_list, f, ensure_ascii=False, indent=4)
                 
-            print("Fichier 'nba_teams.json' généré avec les séries Domicile/Extérieur !")
+            print("Fichier 'nba_teams.json' généré avec succès (Domicile & Extérieur forcés) !")
     except Exception as e:
         print(f"Erreur : {e}")
         raise e
