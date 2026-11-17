@@ -2,8 +2,8 @@ name: Mise à jour quotidienne NBA JSON
 
 on:
   schedule:
-    - cron: '0 6 * * *' # S'exécute tous les jours à 6h00 UTC
-  workflow_dispatch: # Permet aussi de le lancer manuellement depuis l'onglet Actions de GitHub
+    - cron: '0 6 * * *'
+  workflow_dispatch:
 
 jobs:
   update-data:
@@ -18,8 +18,7 @@ jobs:
           python-version: '3.10'
 
       - name: Installer les dépendances (nba_api)
-        run: |
-          pip install nba_api
+        run: pip install nba_api
 
       - name: Exécuter le script Python
         run: python update_nba.py
@@ -29,5 +28,5 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
           git add nba_teams.json
-          git commit -m "Mise à jour automatique des données NBA du jour" || echo "Pas de changement à commiter"
+          git commit -m "Mise à jour automatique des données NBA" || echo "Pas de changement"
           git push
