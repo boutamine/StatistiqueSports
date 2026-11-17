@@ -2,7 +2,7 @@ import json
 import urllib.request
 
 def generate_nba_json():
-    print("Récupération des données NBA avec les détails Domicile/Extérieur...")
+    print("Récupération des données NBA (Domicile & Extérieur)...")
     url = "https://site.api.espn.com/apis/v2/sports/basketball/nba/standings"
     
     req = urllib.request.Request(
@@ -22,15 +22,18 @@ def generate_nba_json():
                 for entry in conference.get('standings', {}).get('entries', []):
                     team = entry.get('team', {})
                     
-                    # Dictionnaire pour stocker les stats par leur nom
                     stats_dict = {}
                     display_stats = {}
                     
                     for s in entry.get('stats', []):
                         name = s.get('name')
                         stats_dict[name] = s.get('value', 0)
-                        display_stats[name] = s.get('displayValue', '0-0')
+                        display_stats[name] = s.get('displayValue', s.get('summary', '0-0'))
                         
+                    # Récupération blindée des bilans Domicile et Extérieur
+                    home_val = display_stats.get('home', display_stats.get('Home', '0-0'))
+                    road_val = display_stats.get('away', display_stats.get('road', display_stats.get('Away', display_stats.get('roadRecord', '0-0'))))
+                    
                     teams_list.append({
                         'TEAM_NAME': team.get('displayName'),
                         'TEAM_ABBREVIATION': team.get('abbreviation'),
@@ -38,16 +41,15 @@ def generate_nba_json():
                         'W': int(stats_dict.get('wins', 0)),
                         'L': int(stats_dict.get('losses', 0)),
                         'WIN_PCT': float(stats_dict.get('winPercent', 0)),
-                        # Extraction correcte des stats Domicile et Extérieur d'ESPN
-                        'HOME': display_stats.get('home', display_stats.get('Home', '0-0')),
-                        'ROAD': display_stats.get('road', display_stats.get('Away', display_stats.get('roadRecord', '0-0'))),
+                        'HOME': home_val,
+                        'ROAD': road_val,
                         'L10': display_stats.get('streak', display_stats.get('L10', '0'))
                     })
             
             with open('nba_teams.json', 'w', encoding='utf-8') as f:
                 json.dump(teams_list, f, ensure_ascii=False, indent=4)
                 
-            print("Fichier 'nba_teams.json' généré et forcé avec succès !")
+            print("Fichier 'nba_teams.json' généré avec succès avec le Domicile et l'Extérieur !")
     except Exception as e:
         print(f"Erreur : {e}")
         raise e
