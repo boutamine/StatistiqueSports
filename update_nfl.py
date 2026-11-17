@@ -21,38 +21,43 @@ def generate_nfl_json():
             conferences = data.get('children', [])
             
             for conf in conferences:
-                for div in conf.get('children', []):
-                    for entry in div.get('standings', {}).get('entries', []):
+                divisions = conf.get('children', [])
+                for div in divisions:
+                    entries = div.get('standings', {}).get('entries', [])
+                    for entry in entries:
                         team = entry.get('team', {})
-                        stats = {s['name']: s for s in entry.get('stats', [])}
                         
-                        gp = stats.get('gamesPlayed', {}).get('value', 0)
-                        wins = stats.get('wins', {}).get('value', 0)
-                        losses = stats.get('losses', {}).get('value', 0)
-                        ties = stats.get('ties', {}).get('value', 0)
-                        win_pct = stats.get('winPercent', {}).get('value', 0)
+                        stats_dict = {}
+                        display_stats = {}
                         
-                        home_record = stats.get('home', {}).get('displayValue', '0-0')
-                        road_record = stats.get('road', {}).get('displayValue', '0-0')
-                        streak = stats.get('streak', {}).get('displayValue', '0')
+                        for s in entry.get('stats', []):
+                            name = s.get('name')
+                            stats_dict[name] = s.get('value', 0)
+                            display_stats[name] = s.get('displayValue', s.get('summary', '0-0'))
+                        
+                        # Récupération sécurisée des bilans Domicile et Extérieur
+                        home_val = display_stats.get('Home', display_stats.get('home', '0-0'))
+                        road_val = display_stats.get('Road', display_stats.get('road', display_stats.get('Away', '0-0')))
+                        streak_val = display_stats.get('streak', '0')
                         
                         teams_list.append({
-                            'TEAM_NAME': team.get('displayName'),
-                            'TEAM_ABBREVIATION': team.get('abbreviation'),
-                            'GP': int(gp),
-                            'W': int(wins),
-                            'L': int(losses),
-                            'T': int(ties),
-                            'WIN_PCT': float(win_pct),
-                            'HOME': home_record,
-                            'ROAD': road_record,
-                            'STREAK': streak
+                            'TEAM_NAME': team.get('displayName', 'Inconnu'),
+                            'TEAM_ABBREVIATION': team.get('abbreviation', '---'),
+                            'GP': int(stats_dict.get('gamesPlayed', 0)),
+                            'W': int(stats_dict.get('wins', 0)),
+                            'L': int(stats_dict.get('losses', 0)),
+                            'T': int(stats_dict.get('ties', 0)),
+                            'WIN_PCT': float(stats_dict.get('winPercent', 0)),
+                            'HOME': home_val,
+                            'ROAD': road_val,
+                            'STREAK': streak_val
                         })
             
             with open('nfl_teams.json', 'w', encoding='utf-8') as f:
                 json.dump(teams_list, f, ensure_ascii=False, indent=4)
                 
-            print("Fichier 'nfl_teams.json' généré avec succès !")
+            print(f"Succès : {len(teams_list)} équipes NFL écrites dans 'nfl_teams.json'.")
+            
     except Exception as e:
         print(f"Erreur : {e}")
         raise e
