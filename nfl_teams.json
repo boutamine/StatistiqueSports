@@ -96,6 +96,18 @@
         "STREAK": "L2"
     },
     {
+        "TEAM_NAME": "Houston Texans",
+        "TEAM_ABBREVIATION": "HOU",
+        "GP": 0,
+        "W": 4,
+        "L": 6,
+        "T": 0,
+        "WIN_PCT": 0.4,
+        "HOME": "1-4",
+        "ROAD": "3-2",
+        "STREAK": "W1"
+    },
+    {
         "TEAM_NAME": "Las Vegas Raiders",
         "TEAM_ABBREVIATION": "LV",
         "GP": 0,
@@ -120,28 +132,16 @@
         "STREAK": "L5"
     },
     {
-        "TEAM_NAME": "Houston Texans",
-        "TEAM_ABBREVIATION": "HOU",
-        "GP": 0,
-        "W": 3,
-        "L": 6,
-        "T": 0,
-        "WIN_PCT": 0.33333334,
-        "HOME": "0-4",
-        "ROAD": "3-2",
-        "STREAK": "L1"
-    },
-    {
         "TEAM_NAME": "Indianapolis Colts",
         "TEAM_ABBREVIATION": "IND",
         "GP": 0,
         "W": 3,
-        "L": 7,
+        "L": 8,
         "T": 0,
-        "WIN_PCT": 0.3,
+        "WIN_PCT": 0.27272728,
         "HOME": "2-3",
-        "ROAD": "1-4",
-        "STREAK": "W1"
+        "ROAD": "1-5",
+        "STREAK": "L1"
     },
     {
         "TEAM_NAME": "New York Jets",
