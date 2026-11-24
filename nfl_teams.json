@@ -36,18 +36,6 @@
         "STREAK": "W3"
     },
     {
-        "TEAM_NAME": "Cincinnati Bengals",
-        "TEAM_ABBREVIATION": "CIN",
-        "GP": 0,
-        "W": 7,
-        "L": 2,
-        "T": 0,
-        "WIN_PCT": 0.7777778,
-        "HOME": "3-1",
-        "ROAD": "4-1",
-        "STREAK": "W5"
-    },
-    {
         "TEAM_NAME": "Jacksonville Jaguars",
         "TEAM_ABBREVIATION": "JAX",
         "GP": 0,
@@ -57,6 +45,18 @@
         "WIN_PCT": 0.7,
         "HOME": "4-1",
         "ROAD": "3-2",
+        "STREAK": "L1"
+    },
+    {
+        "TEAM_NAME": "Cincinnati Bengals",
+        "TEAM_ABBREVIATION": "CIN",
+        "GP": 0,
+        "W": 7,
+        "L": 3,
+        "T": 0,
+        "WIN_PCT": 0.7,
+        "HOME": "3-1",
+        "ROAD": "4-2",
         "STREAK": "L1"
     },
     {
@@ -315,13 +315,13 @@
         "TEAM_NAME": "Washington Commanders",
         "TEAM_ABBREVIATION": "WSH",
         "GP": 0,
-        "W": 3,
+        "W": 4,
         "L": 5,
         "T": 1,
-        "WIN_PCT": 0.3888889,
-        "HOME": "2-2-1",
+        "WIN_PCT": 0.45,
+        "HOME": "3-2-1",
         "ROAD": "1-3",
-        "STREAK": "W1"
+        "STREAK": "W2"
     },
     {
         "TEAM_NAME": "Tampa Bay Buccaneers",
