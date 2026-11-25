@@ -55,6 +55,17 @@
         "L10": "W1"
     },
     {
+        "TEAM_NAME": "Washington Wizards",
+        "TEAM_ABBREVIATION": "WSH",
+        "GP": 0,
+        "W": 7,
+        "L": 12,
+        "WIN_PCT": 0.36842105,
+        "HOME": "3-6",
+        "ROAD": "4-6",
+        "L10": "L1"
+    },
+    {
         "TEAM_NAME": "Toronto Raptors",
         "TEAM_ABBREVIATION": "TOR",
         "GP": 0,
@@ -66,26 +77,15 @@
         "L10": "L1"
     },
     {
-        "TEAM_NAME": "Washington Wizards",
-        "TEAM_ABBREVIATION": "WSH",
-        "GP": 0,
-        "W": 7,
-        "L": 11,
-        "WIN_PCT": 0.3888889,
-        "HOME": "3-5",
-        "ROAD": "4-6",
-        "L10": "W3"
-    },
-    {
         "TEAM_NAME": "Orlando Magic",
         "TEAM_ABBREVIATION": "ORL",
         "GP": 0,
         "W": 7,
-        "L": 9,
-        "WIN_PCT": 0.4375,
-        "HOME": "1-5",
+        "L": 10,
+        "WIN_PCT": 0.4117647,
+        "HOME": "1-6",
         "ROAD": "6-4",
-        "L10": "L1"
+        "L10": "L2"
     },
     {
         "TEAM_NAME": "Cleveland Cavaliers",
@@ -97,17 +97,6 @@
         "HOME": "7-3",
         "ROAD": "2-6",
         "L10": "L1"
-    },
-    {
-        "TEAM_NAME": "Detroit Pistons",
-        "TEAM_ABBREVIATION": "DET",
-        "GP": 0,
-        "W": 10,
-        "L": 6,
-        "WIN_PCT": 0.625,
-        "HOME": "3-3",
-        "ROAD": "7-3",
-        "L10": "L2"
     },
     {
         "TEAM_NAME": "Miami Heat",
@@ -132,15 +121,15 @@
         "L10": "W4"
     },
     {
-        "TEAM_NAME": "Boston Celtics",
-        "TEAM_ABBREVIATION": "BOS",
+        "TEAM_NAME": "Detroit Pistons",
+        "TEAM_ABBREVIATION": "DET",
         "GP": 0,
         "W": 11,
         "L": 6,
         "WIN_PCT": 0.64705884,
-        "HOME": "6-1",
-        "ROAD": "5-5",
-        "L10": "L4"
+        "HOME": "3-3",
+        "ROAD": "8-3",
+        "L10": "W1"
     },
     {
         "TEAM_NAME": "New York Knicks",
@@ -152,6 +141,17 @@
         "HOME": "6-3",
         "ROAD": "5-3",
         "L10": "W5"
+    },
+    {
+        "TEAM_NAME": "Boston Celtics",
+        "TEAM_ABBREVIATION": "BOS",
+        "GP": 0,
+        "W": 12,
+        "L": 6,
+        "WIN_PCT": 0.6666667,
+        "HOME": "6-1",
+        "ROAD": "6-5",
+        "L10": "W1"
     },
     {
         "TEAM_NAME": "Philadelphia 76ers",
@@ -242,26 +242,26 @@
         "L10": "L2"
     },
     {
-        "TEAM_NAME": "Dallas Mavericks",
-        "TEAM_ABBREVIATION": "DAL",
-        "GP": 0,
-        "W": 10,
-        "L": 7,
-        "WIN_PCT": 0.5882353,
-        "HOME": "7-2",
-        "ROAD": "3-5",
-        "L10": "W3"
-    },
-    {
         "TEAM_NAME": "Denver Nuggets",
         "TEAM_ABBREVIATION": "DEN",
         "GP": 0,
         "W": 10,
-        "L": 5,
-        "WIN_PCT": 0.6666667,
-        "HOME": "4-3",
+        "L": 6,
+        "WIN_PCT": 0.625,
+        "HOME": "4-4",
         "ROAD": "5-2",
-        "L10": "W3"
+        "L10": "L1"
+    },
+    {
+        "TEAM_NAME": "Dallas Mavericks",
+        "TEAM_ABBREVIATION": "DAL",
+        "GP": 0,
+        "W": 11,
+        "L": 7,
+        "WIN_PCT": 0.6111111,
+        "HOME": "7-2",
+        "ROAD": "4-5",
+        "L10": "W4"
     },
     {
         "TEAM_NAME": "Portland Trail Blazers",
