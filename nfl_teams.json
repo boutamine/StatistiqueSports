@@ -240,6 +240,18 @@
         "STREAK": "L1"
     },
     {
+        "TEAM_NAME": "Los Angeles Rams",
+        "TEAM_ABBREVIATION": "LAR",
+        "GP": 0,
+        "W": 7,
+        "L": 4,
+        "T": 0,
+        "WIN_PCT": 0.6363636,
+        "HOME": "3-3",
+        "ROAD": "4-1",
+        "STREAK": "W5"
+    },
+    {
         "TEAM_NAME": "New York Giants",
         "TEAM_ABBREVIATION": "NYG",
         "GP": 0,
@@ -250,18 +262,6 @@
         "HOME": "4-2",
         "ROAD": "2-1-1",
         "STREAK": "W1"
-    },
-    {
-        "TEAM_NAME": "Green Bay Packers",
-        "TEAM_ABBREVIATION": "GB",
-        "GP": 0,
-        "W": 6,
-        "L": 4,
-        "T": 0,
-        "WIN_PCT": 0.6,
-        "HOME": "3-2",
-        "ROAD": "3-2",
-        "STREAK": "L1"
     },
     {
         "TEAM_NAME": "Seattle Seahawks",
@@ -276,16 +276,16 @@
         "STREAK": "W2"
     },
     {
-        "TEAM_NAME": "Los Angeles Rams",
-        "TEAM_ABBREVIATION": "LAR",
+        "TEAM_NAME": "Green Bay Packers",
+        "TEAM_ABBREVIATION": "GB",
         "GP": 0,
         "W": 6,
-        "L": 4,
+        "L": 5,
         "T": 0,
-        "WIN_PCT": 0.6,
-        "HOME": "2-3",
-        "ROAD": "4-1",
-        "STREAK": "W4"
+        "WIN_PCT": 0.54545456,
+        "HOME": "3-2",
+        "ROAD": "3-3",
+        "STREAK": "L2"
     },
     {
         "TEAM_NAME": "Carolina Panthers",
