@@ -3,13 +3,13 @@
         "TEAM_NAME": "Buffalo Bills",
         "TEAM_ABBREVIATION": "BUF",
         "GP": 0,
-        "W": 9,
+        "W": 10,
         "L": 1,
         "T": 0,
-        "WIN_PCT": 0.9,
-        "HOME": "4-1",
+        "WIN_PCT": 0.90909094,
+        "HOME": "5-1",
         "ROAD": "5-0",
-        "STREAK": "W6"
+        "STREAK": "W7"
     },
     {
         "TEAM_NAME": "Denver Broncos",
@@ -28,12 +28,12 @@
         "TEAM_ABBREVIATION": "KC",
         "GP": 0,
         "W": 8,
-        "L": 2,
+        "L": 3,
         "T": 0,
-        "WIN_PCT": 0.8,
+        "WIN_PCT": 0.72727275,
         "HOME": "5-0",
-        "ROAD": "3-2",
-        "STREAK": "W3"
+        "ROAD": "3-3",
+        "STREAK": "L1"
     },
     {
         "TEAM_NAME": "Jacksonville Jaguars",
@@ -204,28 +204,28 @@
         "STREAK": "W3"
     },
     {
+        "TEAM_NAME": "Chicago Bears",
+        "TEAM_ABBREVIATION": "CHI",
+        "GP": 0,
+        "W": 9,
+        "L": 2,
+        "T": 0,
+        "WIN_PCT": 0.8181818,
+        "HOME": "5-1",
+        "ROAD": "4-1",
+        "STREAK": "W6"
+    },
+    {
         "TEAM_NAME": "Detroit Lions",
         "TEAM_ABBREVIATION": "DET",
         "GP": 0,
         "W": 8,
-        "L": 2,
+        "L": 3,
         "T": 0,
-        "WIN_PCT": 0.8,
-        "HOME": "6-0",
+        "WIN_PCT": 0.72727275,
+        "HOME": "6-1",
         "ROAD": "2-2",
-        "STREAK": "W6"
-    },
-    {
-        "TEAM_NAME": "Chicago Bears",
-        "TEAM_ABBREVIATION": "CHI",
-        "GP": 0,
-        "W": 8,
-        "L": 2,
-        "T": 0,
-        "WIN_PCT": 0.8,
-        "HOME": "5-1",
-        "ROAD": "3-1",
-        "STREAK": "W5"
+        "STREAK": "L1"
     },
     {
         "TEAM_NAME": "Minnesota Vikings",
@@ -300,18 +300,6 @@
         "STREAK": "W2"
     },
     {
-        "TEAM_NAME": "Dallas Cowboys",
-        "TEAM_ABBREVIATION": "DAL",
-        "GP": 0,
-        "W": 5,
-        "L": 6,
-        "T": 0,
-        "WIN_PCT": 0.45454547,
-        "HOME": "2-4",
-        "ROAD": "3-2",
-        "STREAK": "W1"
-    },
-    {
         "TEAM_NAME": "Washington Commanders",
         "TEAM_ABBREVIATION": "WSH",
         "GP": 0,
@@ -321,6 +309,30 @@
         "WIN_PCT": 0.45,
         "HOME": "3-2-1",
         "ROAD": "1-3",
+        "STREAK": "W2"
+    },
+    {
+        "TEAM_NAME": "Dallas Cowboys",
+        "TEAM_ABBREVIATION": "DAL",
+        "GP": 0,
+        "W": 5,
+        "L": 7,
+        "T": 0,
+        "WIN_PCT": 0.41666666,
+        "HOME": "2-5",
+        "ROAD": "3-2",
+        "STREAK": "L1"
+    },
+    {
+        "TEAM_NAME": "Philadelphia Eagles",
+        "TEAM_ABBREVIATION": "PHI",
+        "GP": 0,
+        "W": 4,
+        "L": 7,
+        "T": 0,
+        "WIN_PCT": 0.36363637,
+        "HOME": "2-4",
+        "ROAD": "2-3",
         "STREAK": "W2"
     },
     {
@@ -358,18 +370,6 @@
         "HOME": "1-5",
         "ROAD": "2-2",
         "STREAK": "L2"
-    },
-    {
-        "TEAM_NAME": "Philadelphia Eagles",
-        "TEAM_ABBREVIATION": "PHI",
-        "GP": 0,
-        "W": 3,
-        "L": 7,
-        "T": 0,
-        "WIN_PCT": 0.3,
-        "HOME": "2-4",
-        "ROAD": "1-3",
-        "STREAK": "W1"
     },
     {
         "TEAM_NAME": "Arizona Cardinals",
